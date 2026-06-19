@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 从日常视角理解游戏世界</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f9f5f0;
+      font-family: 'Georgia', 'Noto Serif SC', '宋体', serif;
+      color: #2e2b28;
+      line-height: 1.8;
+      padding: 2rem 1.5rem 3rem;
+    }
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #fefcf9;
+      padding: 2.8rem 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.02);
+    }
+    /* 开场短句 - 类似内文对话节奏 */
+    .opening-line {
+      font-size: 1.3rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.6rem;
+      padding-left: 0.5rem;
+      border-left: 4px solid #b8a99a;
+      color: #4b4239;
+    }
+    .opening-line em {
+      font-style: italic;
+      color: #7a6b5d;
+    }
+    p {
+      margin-bottom: 1.4rem;
+      text-indent: 0;
+      font-size: 1.02rem;
+    }
+    .intro-paragraph {
+      margin-bottom: 2rem;
+    }
+    blockquote {
+      margin: 2rem 0 2rem 0;
+      padding: 1.2rem 1.6rem;
+      background: #f4efe8;
+      border-radius: 12px;
+      border-left: 6px solid #b8a99a;
+      font-style: normal;
+      color: #3e372f;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+    }
+    blockquote p:last-child {
+      margin-bottom: 0;
+    }
+    blockquote .quote-label {
+      display: inline-block;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      color: #8c7e70;
+      margin-bottom: 0.4rem;
+      font-style: normal;
+    }
+    .feature-section {
+      margin: 2.4rem 0 2rem;
+    }
+    .feature-section h2 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-bottom: 1rem;
+      color: #3b342e;
+      border-bottom: 1px solid #e3d9cf;
+      padding-bottom: 0.3rem;
+    }
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+    .feature-list li {
+      position: relative;
+      padding: 0.6rem 0 0.6rem 1.8rem;
+      border-bottom: 1px dashed #ede6dd;
+      font-size: 0.98rem;
+    }
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+    .feature-list li::before {
+      content: "·";
+      position: absolute;
+      left: 0.2rem;
+      color: #a08d7a;
+      font-weight: bold;
+      font-size: 1.3rem;
+      top: 0.2rem;
+    }
+    .scene-note {
+      margin: 2.2rem 0 1.6rem;
+      padding: 1.2rem 1.6rem;
+      background: #f6f0ea;
+      border-radius: 14px;
+    }
+    .scene-note p {
+      margin-bottom: 0.8rem;
+    }
+    .scene-note p:last-child {
+      margin-bottom: 0;
+    }
+    .gentle-end {
+      margin-top: 2.8rem;
+      padding-top: 1.6rem;
+      border-top: 1px solid #e3d9cf;
+      font-size: 0.97rem;
+      color: #5b5249;
+    }
+    .gentle-end a {
+      color: #5c4c3e;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #cbbdb0;
+      transition: color 0.2s, text-decoration-color 0.2s;
+    }
+    .gentle-end a:hover {
+      color: #2e2721;
+      text-decoration-color: #7a6b5d;
+    }
+    .tip-box {
+      margin: 1.6rem 0 0.8rem;
+      padding: 0.8rem 1.2rem;
+      background: #f2ece6;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      color: #4c443c;
+      border: 1px solid #e5dbd2;
+    }
+    .tip-box strong {
+      font-weight: 600;
+      color: #3b342e;
+    }
+    .faq-summary {
+      margin: 2.4rem 0 1.8rem;
+      padding: 1.2rem 1.6rem;
+      background: #f7f2ec;
+      border-radius: 14px;
+    }
+    .faq-summary h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+      color: #3b342e;
+    }
+    .faq-summary .qa-item {
+      margin-bottom: 0.8rem;
+    }
+    .faq-summary .qa-item:last-child {
+      margin-bottom: 0;
+    }
+    .faq-summary .q {
+      font-weight: 500;
+      color: #4f453b;
+    }
+    .faq-summary .a {
+      margin-left: 0.8rem;
+      color: #5b5249;
+    }
+    @media (max-width: 550px) {
+      body {
+        padding: 1.2rem 0.8rem 2rem;
+      }
+      .container {
+        padding: 1.8rem 1.2rem;
+        border-radius: 14px;
+      }
+      .opening-line {
+        font-size: 1.1rem;
+        padding-left: 0.4rem;
+      }
+      p {
+        font-size: 0.98rem;
+      }
+      blockquote {
+        padding: 1rem 1.1rem;
+      }
+    }
+    @media (max-width: 400px) {
+      .container {
+        padding: 1.2rem 0.8rem;
+      }
+      .feature-list li {
+        font-size: 0.94rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 开场短句 -->
+  <div class="opening-line">
+    <em>有时候，一个查询就像一扇小窗。</em>
+  </div>
+
+  <!-- 承接段落：日常查询、对照与延伸阅读 -->
+  <p class="intro-paragraph">
+    在整理资料、浏览评测或比对游戏信息的过程里，我们常需要一处安静的索引。不需要浮夸的榜单，也不需要重复的广告——只是把那些关于游戏的基本介绍、版本沿革和玩法特点，以平实的方式列在明处。<strong>爱游戏</strong> 正是这样一个角落：它更接近一本翻旧了的参考手册，按主题与系列归类，让你在碎片时间里也能找到想对照的内容。
+  </p>
+
+  <p>
+    无论是回顾某个经典系列的发展脉络，还是随手查阅某款作品的背景设定，一个结构清晰的信息源总能让阅读更顺畅。从日常查询到延伸阅读，中间缺少的往往不是时间，而是一个不打断思路的氛围。
+  </p>
+
+  <!-- 引用 / 提示块，带有温和的引用感 -->
+  <blockquote>
+    <div class="quote-label">—— 一个常见的场景 ——</div>
+    <p>朋友聊起某款老游戏的隐藏结局，你忽然想确认其中的时间线。打开手机，翻了几页都是营销软文和过期资讯。这时候你需要的不是更多噪声，而是一个经过梳理的、可以安静对照的页面。爱游戏 在这一点上做得恰好：没有无关弹窗，没有夸张标题，只有分段清晰的内容。</p>
+  </blockquote>
+
+  <!-- 特点列表：以“特点”为名，实质是站点属性 -->
+  <div class="feature-section">
+    <h2>信息组织上的几个特点</h2>
+    <ul class="feature-list">
+      <li>按系列与主题划分，减少跳转，适合逐条翻阅</li>
+      <li>每个条目附带简要说明与版本标注，便于对照差异</li>
+      <li>不追踪用户行为，无个性化推荐，页面就是页面本身</li>
+      <li>排版优先考虑长时间阅读的舒适度，行距与留白较为克制</li>
+      <li>内容来源清晰，链接与参考资料单独列段，不混淆观点</li>
+    </ul>
+  </div>
+
+  <!-- 场景：延伸阅读与日常使用 -->
+  <div class="scene-note">
+    <p><strong>日常使用场景一</strong> 下午翻出老主机，想重温某款JRPG的中文译名对照和剧情顺序。打开 <a href="https://cn-m-i-game.com.cn">爱游戏</a> 的对应页面，按年份排好的条目一目了然，连当年的杂志攻略编号都有备注。</p>
+    <p><strong>日常使用场景二</strong> 写游戏杂谈、做怀旧视频时，需要快速核实某家公司的开发年表。直接检索关键词，就能看到不含主观评价的客观列表，省去反复比对多个来源的精力。</p>
+  </div>
+
+  <!-- FAQ 摘要（轻量，不展开全部） -->
+  <div class="faq-summary">
+    <h3>常见疑问 · 简读</h3>
+    <div class="qa-item">
+      <span class="q">Q：内容会实时更新吗？</span><br>
+      <span class="a">A：页面内容视版本与信息来源定期修订，不追求绝对实时，但会标注最后更新时段。</span>
+    </div>
+    <div class="qa-item">
+      <span class="q">Q：适合用作引用来源吗？</span><br>
+      <span class="a">A：适合作为初步对照与线索梳理，若正式引用建议核对原始公告或官方文档。</span>
+    </div>
+    <div class="qa-item">
+      <span class="q">Q：页面看起来很简单，后续会丰富吗？</span><br>
+      <span class="a">A：保持简洁本身就是一种选择，信息密度会随着条目增加而自然提升，但不会变成信息轰炸。</span>
+    </div>
+  </div>
+
+  <!-- 温和结尾 -->
+  <div class="gentle-end">
+    <p>每次打开一个网站，就像翻开一本不同脾气的书。<a href="https://cn-m-i-game.com.cn">爱游戏</a> 选择了一种平实的语调：不喧哗，不催促，把材料摆好，等你安安静静地看。如果你在某个午后或深夜需要这样一处页面，它就在那里。</p>
+    <div class="tip-box">
+      <strong>提示：</strong> 所有内容的初衷都是辅助阅读，而非替代体验。最好的对照方式，依然是打开游戏，亲自感受。
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

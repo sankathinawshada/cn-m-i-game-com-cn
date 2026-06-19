@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sankathinawshada.github.io/cn-m-i-game-com-cn/sitemap.xml
