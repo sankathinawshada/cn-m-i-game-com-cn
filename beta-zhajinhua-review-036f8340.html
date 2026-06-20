@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>炸金花 · 经典博弈游戏 | 规则与玩法介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Georgia', 'Noto Serif SC', 'Times New Roman', serif;
+      background-color: #faf6f0;
+      color: #2c2b28;
+      line-height: 1.7;
+      padding: 0 1rem;
+    }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 0 3rem;
+    }
+    /* Hero 区 */
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem 2.5rem;
+      border-bottom: 1px solid #ddd5cb;
+      margin-bottom: 2.8rem;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: #3d2c1d;
+      margin-bottom: 0.6rem;
+    }
+    .hero .sub {
+      font-size: 1.15rem;
+      color: #6b5d4e;
+      max-width: 640px;
+      margin: 0 auto;
+      background: #f3ede6;
+      padding: 0.8rem 1.5rem;
+      border-left: 5px solid #c4a88b;
+      border-radius: 0 6px 6px 0;
+      box-shadow: 1px 2px 4px rgba(0,0,0,0.02);
+    }
+    /* 卡片样式 */
+    .card {
+      background: #fffffffa;
+      border-radius: 12px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2.4rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.05);
+      border: 1px solid #ebe3da;
+    }
+    .card h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #3d2c1d;
+      border-left: 6px solid #b5947a;
+      padding-left: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .card p {
+      margin-bottom: 1.2rem;
+      text-align: justify;
+    }
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+    .highlight-box {
+      background: #f3ede6;
+      padding: 1.2rem 1.6rem;
+      border-radius: 10px;
+      border-left: 6px solid #a3846b;
+      margin: 1.5rem 0;
+      font-size: 0.97rem;
+      color: #3b332b;
+    }
+    .highlight-box strong {
+      color: #4b3629;
+    }
+    .two-col {
+      display: flex;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+      margin-top: 0.8rem;
+    }
+    .col {
+      flex: 1;
+      min-width: 200px;
+      background: #f8f3ed;
+      padding: 1.2rem 1.5rem;
+      border-radius: 10px;
+      border: 1px solid #e0d5ca;
+    }
+    .col h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.75rem;
+      color: #3d2c1d;
+      border-bottom: 1px dashed #d2c3b4;
+      padding-bottom: 0.25rem;
+    }
+    .col ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .col li {
+      margin-bottom: 0.65rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .col li::before {
+      content: "▸";
+      color: #9a7f67;
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+    .faq-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #e6ddd3;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-q {
+      font-weight: 600;
+      color: #3d2c1d;
+      margin-bottom: 0.3rem;
+    }
+    .faq-a {
+      color: #4e443a;
+      padding-left: 0.25rem;
+    }
+    .footer-links {
+      margin-top: 3rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #ddd5cb;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #5f5346;
+    }
+    .footer-links a {
+      color: #5f3f2a;
+      text-decoration: none;
+      border-bottom: 1px dotted #b5947a;
+      transition: border 0.2s;
+    }
+    .footer-links a:hover {
+      border-bottom: 2px solid #7a5f48;
+    }
+    .inline-link {
+      color: #5f3f2a;
+      text-decoration: none;
+      border-bottom: 1px solid #cbb7a4;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .inline-link:hover {
+      color: #3f281b;
+      border-bottom: 2px solid #7a5f48;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #ddd5cb;
+      margin: 2rem 0;
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .card { padding: 1.2rem 1rem; }
+      .two-col { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Hero 区 -->
+    <div class="hero">
+      <h1>炸金花</h1>
+      <div class="sub">
+        简单直接的牌型博弈 · 三张定胜负<br>
+        了解规则，享受斗智的乐趣
+      </div>
+    </div>
+
+    <!-- 优势区 / 特点 -->
+    <div class="card">
+      <h2>▎为什么经典</h2>
+      <p>炸金花作为流传极广的民间纸牌游戏，依靠三张牌的组合与心理较量，在极短时间里就能形成紧张有趣的局面。它不依赖复杂设备，一桌、一副扑克、三五好友便可开局。玩家通过牌型判断、加注或弃牌，在运气与策略之间寻找平衡。</p>
+      <div class="highlight-box">
+        <strong>记住：</strong> 游戏的核心乐趣在于观察与决策。无论牌面大小，保持清晰的思路比盲目跟注重要得多。
+      </div>
+      <div class="two-col">
+        <div class="col">
+          <h3>牌型速览</h3>
+          <ul>
+            <li>豹子（AAA 最大）</li>
+            <li>同花顺</li>
+            <li>金花</li>
+            <li>顺子</li>
+            <li>对子</li>
+            <li>散牌（高牌）</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h3>游戏特色</h3>
+          <ul>
+            <li>节奏紧凑，一局仅需几分钟</li>
+            <li>心理博弈空间充足</li>
+            <li>可通过记牌与概率优化判断</li>
+            <li>适合休闲社交场合</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 说明区 具体内容展开 -->
+    <div class="card">
+      <h2>▎玩法与基础说明</h2>
+      <p>每名玩家获得三张暗牌，经过下注、比牌或弃牌等环节，最终持有最大牌型的玩家获胜。牌型由强至弱依次为：豹子 &gt; 同花顺 &gt; 金花 &gt; 顺子 &gt; 对子 &gt; 散牌。特殊情况下，若双方牌型完全相同，则依次比较单张点数，若仍然相同则为平局（部分规则视同庄家胜或重新发牌）。</p>
+      <p>在经典规则中，玩家可以选择“看牌”或“闷牌”（不看牌直接下注），闷牌下注额通常减半，增加了策略层次。另外，“比牌”环节允许玩家主动比较，输家出局，这种淘汰机制加快了游戏进程，也放大了心理博弈的浓度。</p>
+      <div class="highlight-box">
+        <strong>小提示：</strong> 游戏过程中请保持友善交流，炸金花首先是一种社交娱乐，胜负其次。合理控制时间与节奏，享受过程本身。
+      </div>
+      <p>对于刚接触的朋友，建议先以模拟或低注额的方式熟悉牌型概率与下注逻辑。例如，豹子出现的概率约为 0.24%，同花顺约 0.22%，而散牌（无对、无顺、无花）的概率超过 74%。了解这些基础数字，能帮助你在游戏中做出更理性的决定。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="card">
+      <h2>▎常见问题摘要</h2>
+      <div class="faq-item">
+        <div class="faq-q">▪ 炸金花中 A、2、3 算顺子吗？</div>
+        <div class="faq-a">在大多数规则中，A-2-3 被视为最小的顺子（部分规则也接受 Q-K-A 作为顺子，但 A-2-3 为特殊顺子，牌点通常按 A、2、3 顺序计算）。具体需以约定为准。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">▪ 玩家人数多少最合适？</div>
+        <div class="faq-a">通常 3–6 人比较理想。过少则博弈空间不足，过多则一局时间过长且底牌竞争过于激烈。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">▪ 线上玩炸金花需要注意什么？</div>
+        <div class="faq-a">选择信誉良好的平台，注意保护个人账户信息，并建立合理的时间与预算边界。任何游戏都不应影响正常生活。</div>
+      </div>
+      <div style="margin-top: 1.2rem; padding: 0.8rem 1.2rem; background: #f3ede6; border-radius: 8px; font-size: 0.95rem;">
+        🔍 更多关于规则、牌型概率和常见变体的整理，可以参阅 <a href="https://beta-zhajinhua.com" class="inline-link">炸金花</a> 相关内容。那里有更细致的介绍和牌型对照表。
+      </div>
+    </div>
+
+    <!-- 底部链接 + 附加提示 -->
+    <div class="footer-links">
+      <p>如果你对这款经典纸牌游戏感兴趣，可以深入了解 <a href="https://beta-zhajinhua.com">炸金花</a> 的完整规则与历史演变。本站提供客观的玩法说明与策略参考，帮助你更快上手。</p>
+      <p style="margin-top: 1rem; color: #7a6c5e; font-size: 0.85rem;">
+        © 页面内容仅供参考 · 请以实际规则为准 · 理性娱乐
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>
